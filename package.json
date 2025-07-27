@@ -1,7 +1,6 @@
 {
   "homepage": "http://m3sahlaan.github.io/Sahlaan-Portfolio",
   "name": "Sahlaan-Portfolio",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
