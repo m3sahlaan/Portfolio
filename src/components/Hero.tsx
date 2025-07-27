@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown, FaDownload, FaEnvelope, FaInstagram } from 'react-icons/fa';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaArrowDown, FaDownload, FaEnvelope, FaInstagram } from 'react-icons/fa';
 import profileImg from '../assets/profile.jpg';
-import cvPdf from '../assets/SahlaanCV.pdf';
-import AnimatedText from './AnimatedText';
+import cvPdf from '../assets/SahlaanCV.pdf'
 import { fadeIn, staggerContainer, scaleIn } from '../types/animations';
 
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+  const [mousePosition] = useState({ x: 0, y: 0 });
+  const [, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   
   const { scrollYProgress } = useScroll();

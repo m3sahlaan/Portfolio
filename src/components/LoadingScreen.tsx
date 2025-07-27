@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaCode, FaRocket } from 'react-icons/fa';
+import { FaCode } from 'react-icons/fa';
 
 const LoadingScreen = () => {
   const [loading, setLoading] = useState(true);

@@ -7,7 +7,7 @@ const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [isDark, setIsDark] = useState(true);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleClick = () => {
@@ -58,10 +58,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [menuItems]);
 
-  // Apply theme to document
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDark);
-  }, [isDark]);
 
   // Close mobile menu when clicking outside
   useEffect(() => {

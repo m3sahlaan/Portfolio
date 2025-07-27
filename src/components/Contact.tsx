@@ -151,7 +151,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="heading gradient-text">Let's Work Together</h2>
+          <h2 className="heading gradient-text">Contact Me</h2>
           
             <p className='subheading max-w-3xl mx-auto text-gray-300'>let's make it happen together!</p>
         </motion.div>

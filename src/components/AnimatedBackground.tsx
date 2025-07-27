@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import * as THREE from 'three';
 
 const AnimatedBackground = () => {
-  const mountRef = useRef(null);
+  const mountRef = useRef<HTMLDivElement>(null); // Explicitly type as HTMLDivElement
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const AnimatedBackground = () => {
       blending: THREE.AdditiveBlending,
     });
 
-    const gridLines = [];
+    const gridLines: THREE.Line[] = []; // Explicitly type as THREE.Line[]
     const gridSize = 10;
     const gridSpacing = 1;
 
@@ -61,7 +61,7 @@ const AnimatedBackground = () => {
     let mouseX = 0;
     let mouseY = 0;
 
-    const handleMouseMove = (event) => {
+    const handleMouseMove = (event: MouseEvent) => { // Explicitly type event as MouseEvent
       mouseX = (event.clientX / window.innerWidth) * 2 - 1;
       mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
     };
