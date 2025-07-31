@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaArrowDown, FaDownload, FaEnvelope, FaInstagram } from 'react-icons/fa';
-import profileImg from '../assets/profile.jpg';
+import profileImg from '../assets/profile11.jpg';
 import cvPdf from '../assets/SahlaanResume.pdf';
 import { fadeIn, staggerContainer, scaleIn } from '../types/animations';
 
