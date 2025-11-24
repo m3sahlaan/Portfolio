@@ -79,8 +79,8 @@ const Contact = () => {
       };
 
       await emailjs.send(
-        'service_7e2w0rk',
-        'template_m6omkhf',
+        'service_6kg0f4p',
+        'template_1u0vhji',
         templateParams,
         'Cb3Fd9z5npx7dq8Y-'
       );
