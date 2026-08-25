@@ -155,7 +155,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id='projects' className="section-spacing relative bg-gray-900">
+    <section id='projects' className="section-spacing relative">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -164,10 +164,10 @@ const Projects: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h1 className="heading bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+          <h1 className="heading gradient-text">
             My projects
           </h1>
-          <p className="subheading max-w-3xl mx-auto text-gray-300">
+          <p className="subheading max-w-3xl mx-auto">
             Check out some of my works.
           </p>
         </motion.div>
@@ -206,7 +206,7 @@ const Projects: React.FC = () => {
                   variants={cardVariants}
                   className="group relative"
                 >
-                  <div className="bg-primary-light rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col border border-white/10">
+                  <div className="glass rounded-2xl overflow-hidden shadow-glass hover:shadow-card-hover transition-shadow duration-300 h-full flex flex-col">
                     <div className="relative overflow-hidden">
                       <img
                         src={project.image}
@@ -216,7 +216,7 @@ const Projects: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-90 transition-opacity duration-300" />
                       {project.featured && (
                         <div className="absolute top-4 left-4">
-                          <span className="bg-secondary text-primary px-3 py-1 rounded-full text-xs font-semibold flex items-center shadow-md">
+                          <span className="bg-white/85 text-primary px-3 py-1 rounded-full text-xs font-semibold flex items-center shadow-md">
                             <FaHeart size={12} className="mr-2" />
                             Featured
                           </span>
@@ -236,7 +236,7 @@ const Projects: React.FC = () => {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center justify-center bg-secondary text-primary px-4 py-2 rounded-lg hover:bg-secondary-dark transition-colors duration-300 mb-4 font-semibold text-sm"
+                        className="inline-flex items-center justify-center bg-gradient-to-r from-white to-secondary text-primary px-4 py-2 rounded-full hover:from-secondary-light hover:to-white transition-colors duration-300 mb-4 font-semibold text-sm"
                       >
                         <FaGithub size={16} className="mr-2" />
                         View on GitHub
@@ -245,7 +245,7 @@ const Projects: React.FC = () => {
                         {project.technologies.map((tech, index) => (
                           <span
                             key={index}
-                            className="bg-white/10 text-tertiary px-3 py-1 rounded-full text-xs border border-white/20 hover:bg-white/20 transition-colors duration-200"
+                            className="glass text-tertiary px-3 py-1 rounded-full text-xs hover:bg-white/20 transition-colors duration-200"
                           >
                             {tech}
                           </span>

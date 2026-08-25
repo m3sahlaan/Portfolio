@@ -42,7 +42,7 @@ const LoadingScreen = () => {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-[200] bg-gray-50 dark:bg-gray-900 flex items-center justify-center"
+        className="fixed inset-0 z-[200] bg-[#12141a] flex items-center justify-center"
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -50,7 +50,7 @@ const LoadingScreen = () => {
         {/* Subtle Background Effects */}
         <div className="absolute inset-0">
           <motion.div
-            className="absolute top-1/3 left-1/5 w-64 h-64 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full blur-2xl"
+            className="absolute top-1/3 left-1/5 w-64 h-64 bg-gradient-to-br from-white/10 to-secondary/10 rounded-full blur-2xl"
             animate={{
               scale: [1, 1.1, 1],
               opacity: [0.3, 0.5, 0.3],
@@ -62,7 +62,7 @@ const LoadingScreen = () => {
             }}
           />
           <motion.div
-            className="absolute bottom-1/3 right-1/5 w-48 h-48 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-full blur-2xl"
+            className="absolute bottom-1/3 right-1/5 w-48 h-48 bg-gradient-to-br from-secondary/10 to-white/10 rounded-full blur-2xl"
             animate={{
               scale: [1, 0.9, 1],
               opacity: [0.3, 0.5, 0.3],
@@ -91,13 +91,13 @@ const LoadingScreen = () => {
               transition={{ duration: 2, repeat: Infinity }}
             >
               <motion.div
-                className="w-16 h-16 bg-gradient-to-r from-secondary to-accent rounded-2xl flex items-center justify-center shadow-neon"
+                className="w-16 h-16 glass rounded-2xl flex items-center justify-center shadow-glass"
                 animate={{
                   rotate: [0, 360],
                   boxShadow: [
-                    "0 0 30px rgba(0, 212, 255, 0.5)",
-                    "0 0 50px rgba(0, 212, 255, 0.8)",
-                    "0 0 30px rgba(0, 212, 255, 0.5)"
+                    "0 0 24px rgba(201, 207, 214, 0.28)",
+                    "0 0 40px rgba(232, 237, 242, 0.4)",
+                    "0 0 24px rgba(201, 207, 214, 0.28)"
                   ]
                 }}
                 transition={{
@@ -118,7 +118,7 @@ const LoadingScreen = () => {
             </motion.div>
 
             <motion.p
-              className="text-xl md:text-2xl text-gray-600 dark:text-gray-300"
+              className="text-xl md:text-2xl text-tertiary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.5 }}
@@ -137,7 +137,7 @@ const LoadingScreen = () => {
             <AnimatePresence mode="wait">
               <motion.p
                 key={currentText}
-                className="text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium tracking-tight"
+                className="text-lg md:text-xl text-secondary font-medium tracking-tight"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
@@ -157,14 +157,14 @@ const LoadingScreen = () => {
           >
             <svg className="w-full h-full" viewBox="0 0 100 100">
               <circle
-                className="fill-none stroke-gray-200 dark:stroke-gray-700"
+                className="fill-none stroke-white/20"
                 cx="50"
                 cy="50"
                 r="45"
                 strokeWidth="5"
               />
               <motion.circle
-                className="fill-none stroke-blue-500 dark:stroke-blue-400"
+                className="fill-none stroke-secondary"
                 cx="50"
                 cy="50"
                 r="45"
@@ -178,7 +178,7 @@ const LoadingScreen = () => {
                 x="50"
                 y="55"
                 textAnchor="middle"
-                className="fill-blue-600 dark:fill-blue-400 text-xl font-medium"
+                className="fill-secondary text-xl font-medium"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.8, duration: 0.5 }}
@@ -198,7 +198,7 @@ const LoadingScreen = () => {
             {[...Array(3)].map((_, i) => (
               <motion.div
                 key={i}
-                className="w-3 h-3 bg-blue-500 dark:bg-blue-400 rounded-full"
+                className="w-3 h-3 bg-secondary rounded-full"
                 animate={{
                   y: [0, -8, 0],
                   opacity: [0.7, 1, 0.7],

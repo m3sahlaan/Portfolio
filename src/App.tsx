@@ -55,7 +55,7 @@ function App() {
       <ScrollToTop />
       
       {/* Footer */}
-      <footer className="relative z-10 bg-primary-dark/50 backdrop-blur-sm border-t border-white/10 py-8">
+      <footer className="relative z-10 glass-dark border-t border-white/10 py-8">
         <div className="container-custom">
           <div className="text-center">
             <p className="text-tertiary text-sm">

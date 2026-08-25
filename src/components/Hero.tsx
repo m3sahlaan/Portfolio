@@ -37,13 +37,13 @@ const Hero = () => {
       icon: FaLinkedin,
       href: 'https://www.linkedin.com/in/mohamed-sahlaan/',
       label: 'LinkedIn',
-      color: 'hover:text-blue-400',
+      color: 'hover:text-secondary',
     },
     {
       icon: FaInstagram,
       href: 'https://www.instagram.com/sahlaan_mansoor/profilecard/?igsh=MWE2M3puaHh1cDJtZw%3D%3D',
       label: 'Instagram',
-      color: 'hover:text-blue-400',
+      color: 'hover:text-secondary',
     },
     {
       icon: FaEnvelope,
@@ -148,7 +148,7 @@ const Hero = () => {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.2 + index * 0.1, type: 'spring' }}
-                  className={`text-light hover:text-secondary transition-all duration-300 bg-white/5 p-2 sm:p-3 rounded-full hover:bg-white/10 hover:shadow-glow ${social.color}`}
+                  className={`text-light hover:text-secondary transition-all duration-300 glass p-2 sm:p-3 rounded-full hover:bg-white/15 hover:shadow-glow ${social.color}`}
                   aria-label={social.label}
                 >
                   <social.icon size={isMobile ? 20 : 24} />
@@ -176,7 +176,7 @@ const Hero = () => {
             transition={{ type: 'spring', stiffness: 100, damping: 10 }}
           >
             {/* Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-secondary via-accent to-secondary rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 animate-pulse" />
+            <div className="absolute inset-0 bg-gradient-to-r from-secondary via-white/40 to-accent rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 animate-pulse" />
 
             {/* Profile Image */}
             <motion.div
@@ -188,7 +188,7 @@ const Hero = () => {
               <img
                 src={profileImg}
                 alt="Sahlaan - Full Stack Developer"
-                className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-secondary shadow-2xl bg-primary relative z-10 transition-all duration-500 group-hover:border-accent group-hover:shadow-glow-lg"
+                className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-white/40 shadow-2xl bg-primary relative z-10 transition-all duration-500 group-hover:border-secondary group-hover:shadow-glow-lg"
                 draggable={false}
               />
             </motion.div>
@@ -206,7 +206,7 @@ const Hero = () => {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="text-secondary cursor-pointer bg-white/5 p-2 sm:p-3 rounded-full hover:bg-white/10 hover:shadow-glow transition-all duration-300 border border-white/10"
+          className="text-secondary cursor-pointer glass p-2 sm:p-3 rounded-full hover:bg-white/10 hover:shadow-glow transition-all duration-300"
           onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
           role="button"
           tabIndex={0}

@@ -72,8 +72,8 @@ const ScrollToTop = () => {
               {/* Gradient definition */}
               <defs>
                 <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#64ffda" />
-                  <stop offset="100%" stopColor="#ff6b6b" />
+                  <stop offset="0%" stopColor="#f4f7fa" />
+                  <stop offset="100%" stopColor="#9aa3ad" />
                 </linearGradient>
               </defs>
             </svg>
@@ -83,7 +83,7 @@ const ScrollToTop = () => {
               onClick={scrollToTop}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="absolute inset-0 flex items-center justify-center bg-primary-light/90 backdrop-blur-md rounded-full border border-white/10 hover:border-secondary/30 transition-all duration-300 group"
+              className="absolute inset-0 flex items-center justify-center glass rounded-full hover:border-white/40 transition-all duration-300 group"
               aria-label="Scroll to top"
             >
               <motion.div

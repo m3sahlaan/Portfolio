@@ -21,9 +21,9 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
       whileHover={{ scale: hoverScale }}
-      className={`bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 
-        transition-all duration-300 hover:shadow-xl 
-        border border-gray-100 dark:border-gray-700
+      className={`bg-white/10 dark:bg-white/5 rounded-xl shadow-glass p-6 
+        transition-all duration-300 hover:shadow-card-hover 
+        border border-white/20
         ${className}`}
     >
       {children}

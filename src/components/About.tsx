@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGraduationCap, FaCode, FaHeart, FaRocket, FaUsers, FaLightbulb, FaTrophy, FaStar } from 'react-icons/fa';
+import { FaGraduationCap, FaCode, FaHeart, FaRocket, FaUsers, FaLightbulb, FaTrophy, FaStar, FaBriefcase } from 'react-icons/fa';
 
 const About: React.FC = () => {
   const [activeTab, setActiveTab] = useState('about');
@@ -8,6 +8,7 @@ const About: React.FC = () => {
   const tabs = [
     { id: 'about', name: 'About Me', icon: FaHeart },
     { id: 'education', name: 'Education', icon: FaGraduationCap },
+    { id: 'experience', name: 'Experience', icon: FaBriefcase },
     { id: 'values', name: 'Values', icon: FaLightbulb },
   ];
 
@@ -35,19 +36,35 @@ const About: React.FC = () => {
     },
   ];
 
+  const experience = [
+    {
+      period: 'January 2026 – Present',
+      role: 'Software Engineer Intern',
+      company: 'Powersoft (Pvt) Ltd',
+      highlights: [
+        'Participate in the full software development lifecycle (SDLC) — requirement analysis, system design, implementation, testing, and deployment — translating client requirements into functional software solutions.',
+        'Develop and maintain PHP backend services with MySQL, including database design, query optimization, schema migrations, and CRUD operations for production applications.',
+        'Build and enhance cross-platform mobile applications in Flutter, implementing dynamic responsive UI, state management, form validation, and file/media upload handling.',
+        'Design and integrate RESTful APIs; implement user authentication, authorization, role-based access control (RBAC), and secure session management.',
+        'Implement offline-first functionality with local databases, and integrate Firebase for push notifications and real-time data sync, plus Google Maps, Qibla/compass, QR codes, and payment workflows.',
+        'Perform debugging, error handling, performance optimization, and QA testing; refactor existing code and collaborate via Git within an Agile team, contributing to documentation and code reviews.',
+      ],
+    },
+  ];
+
   const values = [
     
     {
       icon: FaRocket,
       title: 'Creative Solutions',
       description: 'Embracing new tools and innovative approaches to tackle challenging problems.',
-      color: 'text-purple-400'
+      color: 'text-secondary'
     },
     {
       icon: FaCode,
       title: 'Clear Coding',
       description: 'Crafting code that is easy to read, maintain, and extend for seamless collaboration.',
-      color: 'text-blue-400'
+      color: 'text-secondary-light'
     },
     {
       icon: FaTrophy,
@@ -66,7 +83,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="section-spacing relative bg-gray-900">
+    <section id="about" className="section-spacing relative">
       <div className="container-custom">
         {/* Header */}
         <motion.div       
@@ -76,8 +93,8 @@ const About: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="heading bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">About Me</h2>
-          <p className="subheading max-w-3xl mx-auto text-gray-300">
+          <h2 className="heading gradient-text">About Me</h2>
+          <p className="subheading max-w-3xl mx-auto">
            I'm a full-stack developer driven by a love for building impactful digital solutions.
           </p>
         </motion.div>
@@ -97,10 +114,10 @@ const About: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-2 px-4 sm:px-6 py-2 sm py-3 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
+                className={`flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                   activeTab === tab.id
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
-                    : 'bg-gray-800 text-gray-300 hover:text-white hover:bg-blue-700 border border-gray-700'
+                    ? 'bg-white/80 text-primary shadow-glass'
+                    : 'glass text-tertiary hover:text-white hover:bg-white/10'
                 }`}
               >
                 <tab.icon size={14} />
@@ -132,8 +149,8 @@ const About: React.FC = () => {
                   className="relative order-2 lg:order-1"
                 >
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-2xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
-                    <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 sm:p-8 border border-gray-700">
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-secondary/30 to-white/20 rounded-2xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
+                    <div className="relative glass rounded-2xl p-6 sm:p-8">
                       <div className="text-center space-y-4 sm:space-y-6">
                         <motion.div
                           animate={{ rotate: [0, 10, -10, 0] }}
@@ -143,7 +160,7 @@ const About: React.FC = () => {
                           👨🏻‍💻♨️
                         </motion.div>
                         <h3 className="text-xl sm:text-2xl font-bold text-white">Sahlaan Mansoor</h3>
-                        <p className="text-gray-400 text-sm sm:text-base">Full Stack Developer</p>
+                        <p className="text-tertiary text-sm sm:text-base">Full Stack Developer</p>
                       </div>
                     </div>
                   </div>
@@ -159,26 +176,26 @@ const About: React.FC = () => {
                 >
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Passionate Developer</h3>
-                    <p className="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                    <p className="text-tertiary leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
                       As a passionate full-stack developer, I bring ideas to life through intuitive and scalable web solutions. I focus on solving practical problems with clean, efficient code and thoughtful design.
                     </p>
-                    <p className="text-gray-400 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                    <p className="text-tertiary leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
                       What began as a spark of curiosity has grown into a genuine passion for writing elegant code and building thoughtful, user-first experiences. I believe great code should be as readable and maintainable as it is powerful.
                     </p>
-                    <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
+                    <p className="text-tertiary leading-relaxed text-sm sm:text-base">
                       Off the keyboard, I’m a curious learner, open-source contributor, and active member of the developer world. I approach every new challenge as a chance to sharpen my skills and push creative boundaries.
                     </p>
                   </div>
 
                   {/* Quick Stats */}
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                    <div className="card text-center p-3 sm:p-4 bg-gray-800 border border-gray-700 col-span-2 sm:col-span-1">
-                      <div className="text-xl sm:text-2xl font-bold text-blue-400 mb-1">10+</div>
-                      <div className="text-xs sm:text-sm text-gray-400">Projects</div>
+                    <div className="card text-center p-3 sm:p-4 col-span-2 sm:col-span-1">
+                      <div className="text-xl sm:text-2xl font-bold text-secondary mb-1">10+</div>
+                      <div className="text-xs sm:text-sm text-tertiary">Projects</div>
                     </div>
-                    <div className="card text-center p-3 sm:p-4 bg-gray-800 border border-gray-700 col-span-2 sm:col-span-1">
-                      <div className="text-xl sm:text-2xl font-bold text-blue-400 mb-1">20+</div>
-                      <div className="text-xs sm:text-sm text-gray-400">Technologies</div>
+                    <div className="card text-center p-3 sm:p-4 col-span-2 sm:col-span-1">
+                      <div className="text-xl sm:text-2xl font-bold text-secondary mb-1">20+</div>
+                      <div className="text-xs sm:text-sm text-tertiary">Technologies</div>
                     </div>
                   </div>
                 </motion.div>
@@ -194,19 +211,19 @@ const About: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="card p-4 sm:p-6 bg-gray-800 border border-gray-700"
+                    className="card p-4 sm:p-6"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
                       <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-2">
-                          <span className="badge badge-primary text-xs bg-blue-600 text-white">{edu.year}</span>
+                          <span className="badge badge-primary text-xs">{edu.year}</span>
                         </div>
                         <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{edu.degree}</h3>
-                        <p className="text-blue-400 font-medium text-sm sm:text-base">{edu.institution}</p>
+                        <p className="text-secondary font-medium text-sm sm:text-base">{edu.institution}</p>
                       </div>
                     </div>
                     
-                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-4">
+                    <p className="text-tertiary text-sm sm:text-base leading-relaxed mb-4">
                       {edu.description}
                     </p>
 
@@ -214,13 +231,47 @@ const About: React.FC = () => {
                       <h4 className="text-sm font-medium text-white mb-2">Achievements</h4>
                       <ul className="space-y-1">
                         {edu.achievements.map((achievement, achievementIndex) => (
-                          <li key={achievementIndex} className="flex items-start space-x-2 text-sm text-gray-400">
-                            <FaStar className="text-blue-400 mt-1 flex-shrink-0" size={10} />
+                          <li key={achievementIndex} className="flex items-start space-x-2 text-sm text-tertiary">
+                            <FaStar className="text-secondary mt-1 flex-shrink-0" size={10} />
                             <span>{achievement}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+
+            {activeTab === 'experience' && (
+              <div className="space-y-6">
+                {experience.map((job, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="card p-4 sm:p-6"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
+                      <div className="flex-1">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <span className="badge badge-primary text-xs">{job.period}</span>
+                        </div>
+                        <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{job.role}</h3>
+                        <p className="text-secondary font-medium text-sm sm:text-base">{job.company}</p>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-2">
+                      {job.highlights.map((highlight, highlightIndex) => (
+                        <li key={highlightIndex} className="flex items-start space-x-2 text-sm sm:text-base text-tertiary leading-relaxed">
+                          <FaStar className="text-secondary mt-1.5 flex-shrink-0" size={10} />
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </motion.div>
                 ))}
               </div>
@@ -235,7 +286,7 @@ const About: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="card p-4 sm:p-6 text-center group bg-gray-800 border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
+                    className="card p-4 sm:p-6 text-center group hover:border-white/40 transition-all duration-300"
                   >
                     <motion.div
                       className={`text-3xl sm:text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 ${value.color}`}
@@ -243,10 +294,10 @@ const About: React.FC = () => {
                     >
                       <value.icon />
                     </motion.div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors duration-300">
                       {value.title}
                     </h3>
-                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                    <p className="text-tertiary text-sm sm:text-base leading-relaxed">
                       {value.description}
                     </p>
                   </motion.div>

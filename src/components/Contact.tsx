@@ -115,7 +115,7 @@ const Contact = () => {
       title: "Location",
       content: "Colombo, Sri Lanka",
       link: "https://maps.google.com",
-      color: "text-blue-400"
+      color: "text-secondary"
     }
   ];
 
@@ -130,13 +130,13 @@ const Contact = () => {
       icon: FaLinkedin,
       title: "LinkedIn",
       link: "https://www.linkedin.com/in/mohamed-sahlaan/",
-      color: "hover:text-blue-400"
+      color: "hover:text-secondary"
     },
     {
       icon: FaInstagram,
       title: "Instagram",
       link: "https://www.instagram.com/sahlaan_mansoor/profilecard/?igsh=MWE2M3puaHh1cDJtZw%3D%3D",
-      color: "hover:text-blue-400"
+      color: "hover:text-secondary"
     }
   ];
 
@@ -153,7 +153,7 @@ const Contact = () => {
         >
           <h2 className="heading gradient-text">Contact Me</h2>
           
-            <p className='subheading max-w-3xl mx-auto text-gray-300'>let's make it happen together!</p>
+            <p className='subheading max-w-3xl mx-auto'>let's make it happen together!</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
@@ -217,7 +217,7 @@ const Contact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className={`text-light hover:text-secondary transition-all duration-300 bg-white/5 p-3 rounded-full hover:bg-white/10 hover:shadow-glow ${social.color}`}
+                    className={`text-light hover:text-secondary transition-all duration-300 glass p-3 rounded-full hover:bg-white/15 hover:shadow-glow ${social.color}`}
                     aria-label={social.title}
                   >
                     <social.icon size={20} />

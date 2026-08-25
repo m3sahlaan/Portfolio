@@ -76,45 +76,45 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        className={`fixed w-full z-50 transition-all duration-500 ${
-          scrolled 
-            ? 'bg-gradient-to-r from-gray-900/95 to-blue-900/95 backdrop-blur-xl border-b border-blue-600/30 py-3 shadow-2xl shadow-blue-600/10' 
-            : 'bg-transparent py-4'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 pt-3 sm:pt-4 pointer-events-none"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-16">
+        <div
+          className={`ios-navbar pointer-events-auto mx-auto max-w-5xl px-3 sm:px-4 py-2 transition-all duration-500 ${
+            scrolled ? 'ios-navbar-scrolled' : ''
+          }`}
+        >
+          <div className="flex items-center justify-between h-12 sm:h-14 w-full">
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-3 cursor-pointer"
+              className="flex items-center space-x-2.5 cursor-pointer pl-1"
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-teal-400 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/40">
-                <span className="text-white font-extrabold text-base">S</span>
+              <div className="w-9 h-9 bg-gradient-to-br from-white/80 to-secondary-dark rounded-full flex items-center justify-center shadow-inner-glow border border-white/40">
+                <span className="text-primary font-extrabold text-sm">S</span>
               </div>
-              <span className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-300">Sahlaan</span>
+              <span className="text-lg sm:text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-secondary">Sahlaan</span>
             </motion.div>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-10">
+            <div className="hidden lg:flex items-center gap-1">
               {menuItems.map((item) => (
                 <motion.div
                   key={item.name}
-                  whileHover={{ y: -3 }}
+                  whileHover={{ y: -1 }}
                   className="relative"
                 >
                   <Link
                     to={item.to}
                     smooth={true}
                     duration={500}
-                    className={`nav-link px-4 py-2 text-base font-semibold rounded-full transition-all duration-300 ${
-                      activeSection === item.to 
-                        ? 'text-teal-300 bg-blue-800/20 border border-blue-600/30 shadow-sm shadow-blue-500/20' 
-                        : 'text-gray-200 hover:text-teal-300 hover:bg-blue-800/10'
+                    className={`ios-nav-item cursor-pointer px-4 py-2 rounded-full ${
+                      activeSection === item.to
+                        ? 'active'
+                        : 'text-white/80 hover:text-white hover:bg-white/10'
                     }`}
                     onClick={() => setActiveSection(item.to)}
                   >
@@ -131,13 +131,13 @@ const Navbar = () => {
             </div>
 
             {/* Right side buttons */}
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center justify-end min-w-[88px]">
               {/* Mobile Menu Button */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={handleClick}
-                className="lg:hidden p-3 rounded-full bg-blue-800/30 hover:bg-blue-700/30 border border-blue-600/20 transition-all duration-300 shadow-md shadow-blue-500/20"
+                className="lg:hidden p-2.5 rounded-full bg-white/15 hover:bg-white/25 border border-white/25 transition-all duration-300"
                 aria-label="Toggle mobile menu"
               >
                 <AnimatePresence mode="wait">
@@ -149,7 +149,7 @@ const Navbar = () => {
                       exit={{ rotate: 90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <FaTimes className="text-teal-300 text-xl" />
+                      <FaTimes className="text-white text-lg" />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -159,7 +159,7 @@ const Navbar = () => {
                       exit={{ rotate: -90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <FaBars className="text-teal-300 text-xl" />
+                      <FaBars className="text-white text-lg" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -179,7 +179,7 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-md z-40 lg:hidden"
+              className="fixed inset-0 bg-black/50 backdrop-blur-md z-40 lg:hidden"
               onClick={() => {
                 setNav(false);
                 setIsMobileMenuOpen(false);
@@ -192,16 +192,23 @@ const Navbar = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="mobile-menu-container fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-gradient-to-b from-gray-900/95 to-blue-900/95 backdrop-blur-xl border-l border-blue-600/30 z-50 lg:hidden shadow-2xl shadow-blue-600/20"
+              className="mobile-menu-container fixed top-0 right-0 h-full w-80 max-w-[90vw] z-50 lg:hidden"
+              style={{
+                background: 'linear-gradient(180deg, rgba(232,237,242,0.22) 0%, rgba(18,20,26,0.72) 100%)',
+                backdropFilter: 'blur(40px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                borderLeft: '1px solid rgba(255,255,255,0.28)',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.4), inset 1px 0 0 rgba(255,255,255,0.25)',
+              }}
             >
               <div className="flex flex-col h-full">
                 {/* Mobile Menu Header */}
-                <div className="flex items-center justify-between p-6 border-b border-blue-600/30">
+                <div className="flex items-center justify-between p-6 border-b border-white/15">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-teal-400 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/40">
-                      <span className="text-white font-extrabold text-base">S</span>
+                    <div className="w-10 h-10 bg-gradient-to-br from-white/80 to-secondary-dark rounded-full flex items-center justify-center border border-white/40">
+                      <span className="text-primary font-extrabold text-base">S</span>
                     </div>
-                    <span className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-300">Sahlaan</span>
+                    <span className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-secondary">Sahlaan</span>
                   </div>
                   <motion.button
                     whileHover={{ scale: 1.1 }}
@@ -210,9 +217,9 @@ const Navbar = () => {
                       setNav(false);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="p-3 rounded-full bg-blue-800/30 hover:bg-blue-700/30 transition-all duration-300 border border-blue-600/20 shadow-md shadow-blue-500/20"
+                    className="p-3 rounded-full bg-white/15 hover:bg-white/25 transition-all duration-300 border border-white/20"
                   >
-                    <FaTimes className="text-teal-300 text-xl" />
+                    <FaTimes className="text-white text-xl" />
                   </motion.button>
                 </div>
 
@@ -232,8 +239,8 @@ const Navbar = () => {
                           duration={500}
                           className={`flex items-center space-x-4 px-5 py-3 text-lg font-semibold rounded-2xl transition-all duration-300 ${
                             activeSection === item.to
-                              ? 'bg-blue-800/30 text-teal-300 border border-blue-600/40 shadow-md shadow-blue-500/30'
-                              : 'text-gray-200 hover:text-teal-300 hover:bg-blue-800/20'
+                              ? 'bg-white/25 text-white border border-white/30 shadow-glass'
+                              : 'text-white/80 hover:text-white hover:bg-white/10'
                           }`}
                           onClick={() => {
                             setActiveSection(item.to);
@@ -246,7 +253,7 @@ const Navbar = () => {
                           {activeSection === item.to && (
                             <motion.div
                               layoutId="mobileActiveTab"
-                              className="w-1.5 h-7 bg-gradient-to-b from-blue-500 to-teal-400 rounded-full ml-auto shadow-lg shadow-blue-500/40"
+                              className="w-1.5 h-7 bg-gradient-to-b from-white to-secondary rounded-full ml-auto"
                               initial={false}
                               transition={{ type: "spring", stiffness: 500, damping: 30 }}
                             />
@@ -258,16 +265,16 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu Footer */}
-                <div className="p-6 border-t border-blue-600/30">
+                <div className="p-6 border-t border-white/15">
                   <div className="text-center">
-                    <p className="text-gray-200 text-sm mb-4 font-medium">
+                    <p className="text-white/80 text-sm mb-4 font-medium">
                       Let's create something extraordinary together!
                     </p>
                     <motion.a
                       href="#contact"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="block w-full text-center py-3 px-6 rounded-2xl bg-gradient-to-r from-blue-600 to-teal-400 text-white font-semibold hover:from-blue-500 hover:to-teal-300 transition-all duration-300 shadow-lg shadow-blue-500/40"
+                      className="block w-full text-center py-3 px-6 rounded-2xl bg-gradient-to-r from-white to-secondary text-primary font-semibold hover:from-secondary-light hover:to-white transition-all duration-300 shadow-glass"
                       onClick={() => {
                         setNav(false);
                         setIsMobileMenuOpen(false);

@@ -20,7 +20,7 @@ const AnimatedBackground = () => {
 
     // Create grid of glowing lines
     const lineMaterial = new THREE.LineBasicMaterial({
-      color: 0x4a90e2,
+      color: 0xc9cfd6,
       transparent: true,
       opacity: 0.3,
       blending: THREE.AdditiveBlending,
@@ -115,17 +115,17 @@ const AnimatedBackground = () => {
       />
       <div className="fixed inset-0 z-[-2] pointer-events-none">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-tr from-blue-900/10 via-indigo-900/10 to-purple-900/10"
+          className="absolute inset-0 bg-gradient-to-tr from-white/5 via-secondary/10 to-primary-light/20"
           animate={{
             background: [
-              'radial-gradient(circle, rgba(74,144,226,0.1) 0%, rgba(79,70,229,0.1) 50%, rgba(147,51,234,0.1) 100%)',
-              'radial-gradient(circle, rgba(147,51,234,0.1) 0%, rgba(74,144,226,0.1) 50%, rgba(79,70,229,0.1) 100%)',
-              'radial-gradient(circle, rgba(79,70,229,0.1) 0%, rgba(147,51,234,0.1) 50%, rgba(74,144,226,0.1) 100%)',
+              'radial-gradient(circle, rgba(201,207,214,0.12) 0%, rgba(154,163,173,0.08) 50%, rgba(14,16,20,0.2) 100%)',
+              'radial-gradient(circle, rgba(154,163,173,0.12) 0%, rgba(201,207,214,0.08) 50%, rgba(14,16,20,0.2) 100%)',
+              'radial-gradient(circle, rgba(232,237,242,0.1) 0%, rgba(174,182,191,0.08) 50%, rgba(14,16,20,0.2) 100%)',
             ],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-900/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/40" />
       </div>
     </>
   );
